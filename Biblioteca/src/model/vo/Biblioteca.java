@@ -7,6 +7,7 @@ package model.vo;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Random;
 
 /**
  *
@@ -19,6 +20,7 @@ public class Biblioteca {
     private ArrayList<Emprestimo> emprestimos;
     private String nome;
     private Administrador adm;
+    
 
     public Biblioteca(String nome, Administrador adm) {
         this.nome = nome;
@@ -68,7 +70,66 @@ public class Biblioteca {
         this.adm = adm;
     }
     
+    public Usuario retornaUsuario (int id){
+        for (Usuario i : this.usuarios){
+            if (i.getId()==id){
+                return i;
+            }
+        }
+        return null;
+    }
     
+     public Livro retornaLivro (int id){
+        for (Livro i : this.livros){
+            if (i.getId()==id){
+                return i;
+            }
+        }
+        return null;
+    }
+     
+    public Emprestimo retornaEmprestimo (int id){
+        for (Emprestimo i : this.emprestimos){
+            if (i.getId()==id){
+                return i;
+            }
+        }
+        return null;
+    }
+    
+    public void cadastraEmprestimo (int idUsuario, int idLivro){
+        Usuario user = retornaUsuario(idUsuario);
+        Livro liv = retornaLivro(idLivro);
+        if (liv != null && user != null){
+            Emprestimo e;
+            Random gerador = new Random();
+            if (user instanceof Aluno){
+                e = new Emprestimo(gerador.nextInt(250), liv, user, 15);
+                this.emprestimos.add(e);
+            } else if (user instanceof Professor){
+                e = new Emprestimo(gerador.nextInt(250), liv, user, 30);
+                this.emprestimos.add(e);
+            } else if(user instanceof Externo){     
+                e = new Emprestimo(gerador.nextInt(250), liv, user, 7);
+                this.emprestimos.add(e);
+            }
+            System.out.println("Empréstimo realizado com sucesso.");
+        } else {
+            System.out.println("Empresto não pode ser realizado. Chegue o usuário e o livro.");
+        }
+    }
+    
+  
+    
+    
+    
+    
+    
+
+    @Override
+    public String toString() {
+        return "Biblioteca{" + "usuarios=" + usuarios + ", livros=" + livros + ", emprestimos=" + emprestimos + '}';
+    }
     
     
 }

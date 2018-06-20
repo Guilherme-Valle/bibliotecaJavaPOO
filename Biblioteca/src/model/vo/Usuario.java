@@ -64,6 +64,9 @@ public abstract class Usuario {
         this.debitos = debitos;
     }
     
-    
+    public void pagarDebitos (){
+        this.setDebitos(0);
+        System.out.println("Débitos pagos");
+    }
     
 }

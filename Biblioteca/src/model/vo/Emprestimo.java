@@ -5,6 +5,7 @@
  */
 package model.vo;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -12,20 +13,32 @@ import java.util.Date;
  * @author guido
  */
 public class Emprestimo {
+    private int id;
     private Livro livroEmprestimo;
     private Usuario usuarioEmprestimo;
     private int diasRestantes;  
     private Date dataEmprestimo;
     private boolean jaFoiRenovado;
 
-    public Emprestimo(Livro livroEmprestimo, Usuario usuarioEmprestimo, int diasRestantes, Date dataEmprestimo) {
+    public Emprestimo(int id, Livro livroEmprestimo, Usuario usuarioEmprestimo, int diasRestantes) {
+        this.id = id;
         this.livroEmprestimo = livroEmprestimo;
         this.usuarioEmprestimo = usuarioEmprestimo;
         this.diasRestantes = diasRestantes;
-        this.dataEmprestimo = dataEmprestimo;
+        Calendar c = Calendar.getInstance();
+        this.dataEmprestimo = c.getTime();
         this.jaFoiRenovado = false;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
     public Livro getLivroEmprestimo() {
         return livroEmprestimo;
     }
