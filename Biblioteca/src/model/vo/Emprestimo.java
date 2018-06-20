@@ -18,6 +18,7 @@ public class Emprestimo {
     private Usuario usuarioEmprestimo;
     private int diasRestantes;  
     private Date dataEmprestimo;
+    private Date diaDevolucao;
     private boolean jaFoiRenovado;
 
     public Emprestimo(int id, Livro livroEmprestimo, Usuario usuarioEmprestimo, int diasRestantes) {
@@ -27,6 +28,8 @@ public class Emprestimo {
         this.diasRestantes = diasRestantes;
         Calendar c = Calendar.getInstance();
         this.dataEmprestimo = c.getTime();
+        this.diaDevolucao = this.dataEmprestimo;
+        this.diaDevolucao.setDate(this.diaDevolucao.getDate()+diasRestantes);     
         this.jaFoiRenovado = false;
     }
 
@@ -38,6 +41,14 @@ public class Emprestimo {
         this.id = id;
     }
 
+    public Date getDiaDevolucao() {
+        return diaDevolucao;
+    }
+
+    public void setDiaDevolucao(Date diaDevolucao) {
+        this.diaDevolucao = diaDevolucao;
+    }
+    
     
     public Livro getLivroEmprestimo() {
         return livroEmprestimo;
@@ -86,8 +97,5 @@ public class Emprestimo {
             this.diasRestantes+= diasRenovados;
             this.setJaFoiRenovado(true);
         }
-    }
-    
-    
-    
+    }    
 }
