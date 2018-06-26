@@ -195,12 +195,20 @@ public class Biblioteca {
                 }
             }
         }
+    
+    }
+    
+    public void proximoDiaSistema (){
+        this.diaSistema.setDate(this.diaSistema.getDate()+1);
+        System.out.println("Mais um dia se passou...");
     }
     
     @Override
     public String toString() {
         return "Biblioteca{" + "usuarios=" + usuarios + ", livros=" + livros + ", emprestimos=" + emprestimos + '}';
     }
+    
+    
     
     
 }

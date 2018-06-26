@@ -19,6 +19,7 @@ public class Emprestimo {
     private Date dataEmprestimo;
     private Date diaDevolucao;
     private boolean jaFoiRenovado;
+    
     public final static int diasEmprestimoProfessor = 30;
     public final static int diasEmprestimoAluno = 15;
     public final static int diasEmprestimoExterno = 7;
@@ -100,5 +101,6 @@ public class Emprestimo {
             this.diaDevolucao.setDate(this.diaDevolucao.getDate()+diasRenovados);
             this.setJaFoiRenovado(true);
         }
-    }    
+    }
+
 }

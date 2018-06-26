@@ -15,11 +15,14 @@ public class Main {
         b1.cadastrarAluno("Joao", "123457", "12/07/1200", "123", 3);
         b1.cadastrarLivro("O livro legal", "Quem souber morre", "UFBA comunista", "12/05/1990", "2" , "2.5", 5);
         
-        int livroId = b1.pesquisaIdLivroPorNome("O livro legal");
-        int alunoId = b1.pesquisaIdUsuarioPorNome("Joao");
         
+        int livroId = b1.pesquisaIdLivroPorNome("O livro legal");
+        int alunoId = b1.pesquisaIdUsuarioPorNome("Joao");        
         b1.cadastraEmprestimo(alunoId, livroId);
+       
         
         System.out.println(livroId);
+        
+        
     }
 }
