@@ -89,10 +89,28 @@ public class Biblioteca {
         return null;
     }
     
+    public Integer pesquisaIdUsuarioPorNome (String nome){
+        for (Usuario i : this.usuarios){
+            if (i.getNome().equals(nome)){
+                return i.getId();
+            }
+        }
+        return null;
+    }
+    
      public Livro retornaLivro (int id){
         for (Livro i : this.livros){
             if (i.getId()==id){
                 return i;
+            }
+        }
+        return null;
+    }
+     
+     public Integer pesquisaIdLivroPorNome (String nome){
+        for (Livro i : this.livros){
+            if (i.getTitulo().equals(nome)){
+                return i.getId();
             }
         }
         return null;
