@@ -13,6 +13,7 @@ public class Externo extends Usuario {
     
     private String tipoDeUsuario;
     
+    
     public Externo(int id, String nome, String telefone, String dataNascimento, double debitos, String tipoDeUsuario) {
         super(id, nome, telefone, dataNascimento, debitos);
         this.tipoDeUsuario = tipoDeUsuario;

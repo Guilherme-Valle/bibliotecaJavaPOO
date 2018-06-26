@@ -13,6 +13,7 @@ public class Professor extends Usuario{
     
     private String codigoProfessor;
     private String departamentoProfessor;
+    
 
     public String getCodigoProfessor() {
         return codigoProfessor;

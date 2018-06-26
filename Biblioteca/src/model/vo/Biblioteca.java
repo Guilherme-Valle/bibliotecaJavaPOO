@@ -110,27 +110,16 @@ public class Biblioteca {
     public void cadastraEmprestimo (int idUsuario, int idLivro){
         Usuario user = retornaUsuario(idUsuario);
         Livro liv = retornaLivro(idLivro);
-        if (liv != null && user != null && liv.getQtdVolumes() > 0){
-            Emprestimo e;
+        if (liv != null && user != null && liv.getQtdVolumes() > 0){           
             Random gerador = new Random();
-            if (user instanceof Aluno){
-                e = new Emprestimo(gerador.nextInt(25000), liv, user, 15);
-                liv.setQtdVolumes(liv.getQtdVolumes()-1);
-                this.emprestimos.add(e);
-            } else if (user instanceof Professor){
-                e = new Emprestimo(gerador.nextInt(25000), liv, user, 30);
-                liv.setQtdVolumes(liv.getQtdVolumes()-1);
-                this.emprestimos.add(e);
-            } else if(user instanceof Externo){     
-                e = new Emprestimo(gerador.nextInt(25000), liv, user, 7);
-                liv.setQtdVolumes(liv.getQtdVolumes()-1);
-                this.emprestimos.add(e);
-            }
+            Emprestimo emprestimo = new Emprestimo(gerador.nextInt(2500), liv, user);
+            this.emprestimos.add(emprestimo);
             System.out.println("Empréstimo realizado com sucesso.");
-        } else {
-            System.out.println("Empresto não pode ser realizado. Chegue o usuário e o livro.");
+        } else {    
+            System.out.println("Empresto não pode ser realizado. Chegue o usuário, o livro e a quantidade de volumes"
+                    + " disponíveis.");
         }
-    }
+    } 
     
   public void cadastrarProfessor (String nome, String telefone, String dataNascimento, String codigo, String dpt){
       Random gerador = new Random();
@@ -165,6 +154,17 @@ public class Biblioteca {
       }
   }
     
+    public void cadastrarLivro (String titulo, String autor, String editora, String dataLancamento, String volume, String edicao, int qtdVolumes){
+       Random gerador = new Random();
+       Livro l = new Livro(gerador.nextInt(2500), titulo, autor, editora, dataLancamento, volume, edicao, qtdVolumes);
+       
+       try {
+           this.livros.add(l);
+       } catch (Exception e){
+           e.printStackTrace();
+       }
+    }
+    
     public void verificarEmprestimo (){
         for (Emprestimo e : this.emprestimos){
             if (e.getDiaDevolucao().before(this.diaSistema)){
@@ -186,3 +186,5 @@ public class Biblioteca {
     
     
 }
+
+

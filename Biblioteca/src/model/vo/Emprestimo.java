@@ -15,21 +15,32 @@ import java.util.Date;
 public class Emprestimo {
     private int id;
     private Livro livroEmprestimo;
-    private Usuario usuarioEmprestimo;
-    private int diasRestantes;  
+    private Usuario usuarioEmprestimo; 
     private Date dataEmprestimo;
     private Date diaDevolucao;
     private boolean jaFoiRenovado;
+    public final static int diasEmprestimoProfessor = 30;
+    public final static int diasEmprestimoAluno = 15;
+    public final static int diasEmprestimoExterno = 7;
 
-    public Emprestimo(int id, Livro livroEmprestimo, Usuario usuarioEmprestimo, int diasRestantes) {
+
+        
+    
+
+    public Emprestimo(int id, Livro livroEmprestimo, Usuario usuarioEmprestimo) {
         this.id = id;
         this.livroEmprestimo = livroEmprestimo;
         this.usuarioEmprestimo = usuarioEmprestimo;
-        this.diasRestantes = diasRestantes;
         Calendar c = Calendar.getInstance();
         this.dataEmprestimo = c.getTime();
         this.diaDevolucao = this.dataEmprestimo;
-        this.diaDevolucao.setDate(this.diaDevolucao.getDate()+diasRestantes);     
+        if (usuarioEmprestimo instanceof Externo){
+            this.diaDevolucao.setDate(this.diaDevolucao.getDate()+diasEmprestimoExterno);     
+        } else if (usuarioEmprestimo instanceof Aluno){
+            this.diaDevolucao.setDate(this.diaDevolucao.getDate()+diasEmprestimoAluno);     
+        } else if (usuarioEmprestimo instanceof Professor){
+            this.diaDevolucao.setDate(this.diaDevolucao.getDate()+diasEmprestimoProfessor);     
+        }
         this.jaFoiRenovado = false;
     }
 
@@ -66,14 +77,6 @@ public class Emprestimo {
         this.usuarioEmprestimo = usuarioEmprestimo;
     }
 
-    public int getDiasRestantes() {
-        return diasRestantes;
-    }
-
-    public void setDiasRestantes(int diasRestantes) {
-        this.diasRestantes = diasRestantes;
-    }
-
     public Date getDataEmprestimo() {
         return dataEmprestimo;
     }
@@ -94,7 +97,7 @@ public class Emprestimo {
         if (this.jaFoiRenovado){
             System.out.println("Este empréstimo já foi renovado.");
         } else {
-            this.diasRestantes+= diasRenovados;
+            this.diaDevolucao.setDate(this.diaDevolucao.getDate()+diasRenovados);
             this.setJaFoiRenovado(true);
         }
     }    
