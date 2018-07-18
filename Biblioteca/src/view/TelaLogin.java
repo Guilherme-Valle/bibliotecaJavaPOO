@@ -28,36 +28,44 @@ public class TelaLogin extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Login");
-		lblNewLabel.setBounds(139, 150, 70, 15);
+		lblNewLabel.setBounds(126, 150, 70, 15);
 		panel.add(lblNewLabel);
 		
 		txtLogin = new JTextField();
-		txtLogin.setBounds(193, 148, 114, 19);
+		txtLogin.setBounds(179, 148, 114, 19);
 		panel.add(txtLogin);
 		txtLogin.setColumns(10);
 		
 		JLabel lblSenha = new JLabel("Senha");
-		lblSenha.setBounds(139, 177, 70, 15);
+		lblSenha.setBounds(126, 177, 70, 15);
 		panel.add(lblSenha);
 		
 		txtSenha = new JTextField();
-		txtSenha.setBounds(193, 177, 114, 19);
+		txtSenha.setBounds(179, 175, 114, 19);
 		panel.add(txtSenha);
 		txtSenha.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Entrar");
-		btnNewButton.setBounds(193, 204, 117, 25);
+		btnNewButton.setBounds(179, 204, 117, 25);
 		panel.add(btnNewButton);
 		
 		JLabel lblImg = new JLabel("");
 		Image img = new ImageIcon(this.getClass().getResource("/libraryicon.png")).getImage();
 		lblImg.setIcon(new ImageIcon(img));
-		lblImg.setBounds(139, 0, 200, 126);
+		lblImg.setBounds(126, 0, 200, 126);
 		panel.add(lblImg);
 		
 		
 		
 		
 		
+	}
+	public String getLogin(){
+		return txtLogin.getText().toString();
+	}
+	
+	
+	public String getSenha(){
+		return txtSenha.getText().toString();
 	}
 }
