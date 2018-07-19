@@ -13,11 +13,13 @@ package model.vo;
 public class Externo extends Usuario {
     
     private String tipoDeUsuario;
+    private String codigoIdentificafor;
     
     
-    public Externo(int id, String nome, String telefone, String dataNascimento, double debitos, String tipoDeUsuario) {
+    public Externo(int id, String nome, String telefone, String dataNascimento, double debitos, String tipoDeUsuario, String codigoIdt) {
         super(id, nome, telefone, dataNascimento, debitos);
         this.tipoDeUsuario = tipoDeUsuario;
+        this.codigoIdentificafor = codigoIdt;
     }
 
     public String getTipoDeUsuario() {
@@ -27,6 +29,16 @@ public class Externo extends Usuario {
     public void setTipoDeUsuario(String tipoDeUsuario) {
         this.tipoDeUsuario = tipoDeUsuario;
     }
+
+	public String getCodigoIdentificafor() {
+		return codigoIdentificafor;
+	}
+
+	public void setCodigoIdentificafor(String codigoIdentificafor) {
+		this.codigoIdentificafor = codigoIdentificafor;
+	}
+    
+    
     
     
 }

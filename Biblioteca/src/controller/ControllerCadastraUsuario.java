@@ -24,6 +24,15 @@ public class ControllerCadastraUsuario {
 	class listenerBtnAluno implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
+			
+			JPanel paneprof = the_view.getPanel_Prof();
+			paneprof.setVisible(false);
+			the_view.setPanel_Prof(paneprof);
+			
+			JPanel paneext = the_view.getPanel_Ext();
+			paneext.setVisible(false);
+			the_view.setPanel_Ext(paneext);
+			
 			JPanel pane = the_view.getPanel_Aluno();
 			pane.setVisible(true);
 			the_view.setPanel_Aluno(pane);
@@ -38,6 +47,11 @@ public class ControllerCadastraUsuario {
 	class listenerBtnProfessor implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
+			
+			JPanel paneext = the_view.getPanel_Ext();
+			paneext.setVisible(false);
+			the_view.setPanel_Ext(paneext);
+			
 			JPanel pane = the_view.getPanel_Aluno();
 			pane.setVisible(false);
 			the_view.setPanel_Aluno(pane);
@@ -53,7 +67,17 @@ public class ControllerCadastraUsuario {
 	class listenerBtnExterno implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
+			JPanel panealuno = the_view.getPanel_Aluno();
+			panealuno.setVisible(false);
+			the_view.setPanel_Aluno(panealuno);
+			
+			JPanel paneprof = the_view.getPanel_Prof();
+			paneprof.setVisible(false);
+			the_view.setPanel_Prof(paneprof);
+			
+			JPanel paneext = the_view.getPanel_Ext();
+			paneext.setVisible(true);
+			the_view.setPanel_Ext(paneext);
 			
 		}
 		

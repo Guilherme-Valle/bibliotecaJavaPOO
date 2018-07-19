@@ -161,9 +161,9 @@ public class Biblioteca {
       }
   }
    
-    public void cadastrarExterno (String nome, String telefone, String dataNascimento, String tipoUsuario){
+    public void cadastrarExterno (String nome, String telefone, String dataNascimento, String tipoUsuario, String cod){
       Random gerador = new Random();
-      Usuario p = new Externo(gerador.nextInt(25000), nome, telefone, dataNascimento, 0, tipoUsuario);
+      Usuario p = new Externo(gerador.nextInt(25000), nome, telefone, dataNascimento, 0, tipoUsuario, cod);
       
       try {
         this.usuarios.add(p);

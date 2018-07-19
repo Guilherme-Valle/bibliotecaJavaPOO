@@ -39,32 +39,26 @@ public class TelaCadastroUsuario extends JFrame {
 	private final JTextField txtDeptProf = new JTextField();
 	private final JLabel lblCodProf = new JLabel("Codigo: ");
 	private final JLabel lblDptProf = new JLabel("Dpto: ");
-	
-	
-	
-	
-	
+	private final JLabel lblTipoExt = new JLabel ("Tipo:");
+	private final JLabel lblCodExt = new JLabel("Codigo:");
+	private final JTextField txtTipoExt = new JTextField();
+	private final JTextField txtCodExt = new JTextField();
+
 	
 	
 	private JTextField textField;
 	private JPanel panel_aluno = new JPanel();
 	private JPanel panel_prof = new JPanel();
 	private JPanel panel_ext = new JPanel();
+	
+	
 	private final JTextField textField_1 = new JTextField();
 	private final JLabel lblNewLabel_2 = new JLabel("New label");
 	private final JTextField textField_2 = new JTextField();
 	
 	
 	public TelaCadastroUsuario() {
-		txtAnoAluno.setBounds(80, 25, 114, 19);
-		txtAnoAluno.setColumns(10);
-		txtMatAluno.setBounds(80, -2, 114, 19);
-		txtMatAluno.setColumns(10);
 		
-		txtCodigoProf.setBounds(80, 25, 114, 19);
-		txtCodigoProf.setColumns(10);
-		txtDeptProf.setBounds(80, -2, 114, 19);
-		txtDeptProf.setColumns(10);
 		
 		getContentPane().setLayout(null);
 		
@@ -127,51 +121,69 @@ public class TelaCadastroUsuario extends JFrame {
 		labelIcon.setBounds(228, 12, 149, 110);
 		panel.add(labelIcon);
 		
-		JPanel panelprofessor = new JPanel();
-		panelprofessor.setBounds(12, 262, 365, 80);
-		panel.add(panelprofessor);
 		
-		JPanel panelexterno = new JPanel();
-		panelexterno.setBounds(12, 262, 365, 80);
-		panel.add(panelprofessor);
 		
+	
 		
 		JLabel lblCadastroDeUsurio = new JLabel("Cadastro de Usuário");
 		lblCadastroDeUsurio.setBounds(12, 0, 154, 29);
 		getContentPane().add(lblCadastroDeUsurio);
 		
 		
-		panel_aluno.setBounds(10, 268, 398, 116);
-		
 		getContentPane().add(panel_aluno);
+		panel_aluno.setBounds(10, 268, 398, 116);	
+		txtAnoAluno.setBounds(80, 25, 114, 19);
+		txtAnoAluno.setColumns(10);
+		txtMatAluno.setBounds(80, -2, 114, 19);
+		txtMatAluno.setColumns(10);
+		lblMatAluno.setBounds(0, 0, 85, 15);
+		lblAnoAluno.setBounds(0, 27, 70, 15);
+		panel_aluno.add(lblMatAluno);
+		panel_aluno.add(txtMatAluno);
+		panel_aluno.add(lblAnoAluno);
+		panel_aluno.add(txtAnoAluno);
 		
 		panel_aluno.setVisible(false);
 		panel_aluno.setLayout(null);
-		lblMatAluno.setBounds(0, 0, 85, 15);
-		panel_aluno.add(lblMatAluno);
 		
-		panel_aluno.add(txtMatAluno);
-		lblAnoAluno.setBounds(0, 27, 70, 15);
-		
-		panel_aluno.add(lblAnoAluno);
-		
-		panel_aluno.add(txtAnoAluno);
-		
+		txtCodigoProf.setBounds(80, 25, 114, 19);
+		txtCodigoProf.setColumns(10);
+		txtDeptProf.setBounds(80, -2, 114, 19);
+		txtDeptProf.setColumns(10);
 		panel_prof.setBounds(10, 268, 398, 116);
-		
 		getContentPane().add(panel_prof);
-		
 		panel_prof.setVisible(false);
 		panel_prof.setLayout(null);
 		lblCodProf.setBounds(0, 0, 85, 15);
 		panel_prof.add(lblCodProf);
-		
 		panel_prof.add(txtCodigoProf);
 		lblDptProf.setBounds(0, 27, 70, 15);
-		
 		panel_prof.add(lblDptProf);
-		
 		panel_prof.add(txtDeptProf);
+		
+		
+		
+		txtCodExt.setBounds(80, 25, 114, 19);
+		txtCodExt.setColumns(10);
+		txtTipoExt.setBounds(80, -2, 114, 19);
+		txtTipoExt.setColumns(10);
+		panel_ext.setBounds(10, 268, 398, 116);
+		getContentPane().add(panel_ext);
+		panel_ext.setVisible(false);
+		panel_ext.setLayout(null);
+		lblCodExt.setBounds(0, 0, 85, 15);
+		panel_ext.add(lblCodExt);
+		panel_ext.add(txtCodExt);
+		lblTipoExt.setBounds(0, 27, 70, 15);
+		panel_ext.add(lblTipoExt);
+		panel_ext.add(txtTipoExt);
+		
+		
+		
+		
+		
+		
+		
 		
 	}
 	
@@ -275,6 +287,17 @@ public class TelaCadastroUsuario extends JFrame {
 		this.panel_prof = panel;
 		
 	}
+	
+	public JPanel getPanel_Ext (){
+		return this.panel_ext;
+		
+	}
+	
+	public void setPanel_Ext(JPanel panel){
+		this.panel_ext = panel;
+		
+	}
+
 
 
 	public JLabel getLblAnoAluno() {
