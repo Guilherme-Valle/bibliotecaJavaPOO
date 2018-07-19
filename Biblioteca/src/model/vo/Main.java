@@ -16,8 +16,11 @@ public class Main {
     public static void main(String[] args){
         TelaMenuPrincipal theView = new TelaMenuPrincipal();
         ControllerMainMenu theController = new ControllerMainMenu(theView);
+        
+        theView.setExtendedState(theView.MAXIMIZED_BOTH);
+        theView.setLocationRelativeTo(null);
         theView.setVisible(true);
         
-        
+       
     }
 }

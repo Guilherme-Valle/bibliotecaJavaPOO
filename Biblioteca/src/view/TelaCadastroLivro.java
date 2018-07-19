@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Image;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -10,13 +11,15 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 public class TelaCadastroLivro extends JFrame {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
+	JTextField txtTit = new JTextField();
+	JTextField txtAut = new JTextField();
+	JTextField txtEdit = new JTextField();
+	JTextField txtDat = new JTextField();
+	JTextField txtVol = new JTextField();
+	JTextField txtEdic = new JTextField();
+	JTextField txtQtd = new JTextField();
+	JButton btnCadastrar = new JButton("Cadastrar");
+	
 	public TelaCadastroLivro() {
 		getContentPane().setLayout(null);
 		
@@ -49,32 +52,32 @@ public class TelaCadastroLivro extends JFrame {
 		label_4.setBounds(12, 158, 70, 15);
 		panel.add(label_4);
 		
-		JTextField txtTit = new JTextField();
+		
 		txtTit.setBounds(65, 23, 180, 19);
 		panel.add(txtTit);
 		txtTit.setColumns(10);
 		
-		JTextField txtAut = new JTextField();
+		
 		txtAut.setColumns(10);
 		txtAut.setBounds(75, 50, 172, 19);
 		panel.add(txtAut);
 		
-		JTextField txtEdit = new JTextField();
+		
 		txtEdit.setColumns(10);
 		txtEdit.setBounds(85, 77, 162, 19);
 		panel.add(txtEdit);
 		
-		JTextField txtDat = new JTextField();
+		
 		txtDat.setColumns(10);
 		txtDat.setBounds(143, 102, 121, 19);
 		panel.add(txtDat);
 		
-		JTextField txtVol = new JTextField();
+		
 		txtVol.setColumns(10);
 		txtVol.setBounds(75, 129, 96, 19);
 		panel.add(txtVol);
 		
-		JTextField txtEdic = new JTextField();
+		
 		txtEdic.setColumns(10);
 		txtEdic.setBounds(75, 156, 96, 19);
 		panel.add(txtEdic);
@@ -83,7 +86,7 @@ public class TelaCadastroLivro extends JFrame {
 		lblQuantosExemplares.setBounds(12, 185, 195, 15);
 		panel.add(lblQuantosExemplares);
 		
-		JTextField txtQtd = new JTextField();
+		
 		txtQtd.setBounds(184, 183, 48, 19);
 		panel.add(txtQtd);
 		txtQtd.setColumns(10);
@@ -94,14 +97,91 @@ public class TelaCadastroLivro extends JFrame {
 		labelIcon.setBounds(282, 0, 143, 134);
 		panel.add(labelIcon);
 		
-		JButton btnCada = new JButton("Cadastrar");
-		btnCada.setBounds(12, 212, 233, 25);
-		panel.add(btnCada);
+		
+		btnCadastrar.setBounds(12, 212, 233, 25);
+		panel.add(btnCadastrar);
 		
 		JLabel lblCadastroDeLivro = new JLabel("Cadastro de Livro:");
 		lblCadastroDeLivro.setBounds(12, 12, 130, 15);
 		getContentPane().add(lblCadastroDeLivro);
 	}
+
+
+	public JTextField getTxtTit() {
+		return txtTit;
+	}
+
+
+	public void setTxtTit(JTextField txtTit) {
+		this.txtTit = txtTit;
+	}
+
+
+	public String getTxtAut() {
+		return txtAut.getText();
+	}
+
+
+	public void setTxtAut(JTextField txtAut) {
+		this.txtAut = txtAut;
+	}
+
+
+	public JTextField getTxtEdit() {
+		return txtEdit;
+	}
+
+
+	public void setTxtEdit(JTextField txtEdit) {
+		this.txtEdit = txtEdit;
+	}
+
+
+	public JTextField getTxtDat() {
+		return txtDat;
+	}
+
+
+	public void setTxtDat(JTextField txtDat) {
+		this.txtDat = txtDat;
+	}
+
+
+	public JTextField getTxtVol() {
+		return txtVol;
+	}
+
+
+	public void setTxtVol(JTextField txtVol) {
+		this.txtVol = txtVol;
+	}
+
+
+	public JTextField getTxtEdic() {
+		return txtEdic;
+	}
+
+
+	public void setTxtEdic(JTextField txtEdic) {
+		this.txtEdic = txtEdic;
+	}
+
+
+	public JTextField getTxtQtd() {
+		return txtQtd;
+	}
+
+
+	public void setTxtQtd(JTextField txtQtd) {
+		this.txtQtd = txtQtd;
+	}
+	
+	public void addListenerBtnCadastrar (ActionListener e){
+		btnCadastrar.addActionListener(e);
+		
+	}
+	
+	
 	
 
 }
