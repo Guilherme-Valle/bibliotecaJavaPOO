@@ -15,13 +15,23 @@ public abstract class Usuario {
     protected String telefone;
     protected String dataNascimento;
     protected double debitos;
+    protected int idBiblioteca;
 
-    public Usuario(int id, String nome, String telefone, String dataNascimento, double debitos) {
+    public int getIdBiblioteca() {
+		return idBiblioteca;
+	}
+
+	public void setIdBiblioteca(int idBiblioteca) {
+		this.idBiblioteca = idBiblioteca;
+	}
+
+	public Usuario(int id, String nome, String telefone, String dataNascimento, double debitos, int idBiblioteca) {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
         this.debitos = debitos;
+        this.idBiblioteca = idBiblioteca;
     }
 
     public int getId() {

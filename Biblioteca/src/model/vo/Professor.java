@@ -9,7 +9,7 @@ package model.vo;
  *
  * @author guido
  */
-public class Professor extends Usuario{
+public class Professor extends Usuario {
     
     private String codigoProfessor;
     private String departamentoProfessor;
@@ -31,8 +31,8 @@ public class Professor extends Usuario{
         this.departamentoProfessor = departamentoProfessor;
     }
     
-    public Professor(int id, String nome, String telefone, String dataNascimento, double debitos, String codigo, String dpt) {
-        super(id, nome, telefone, dataNascimento, debitos);
+    public Professor(int id, String nome, String telefone, String dataNascimento, double debitos, String codigo, String dpt, int FK) {
+        super(id, nome, telefone, dataNascimento, debitos, FK);
         this.codigoProfessor = codigo;
         this.departamentoProfessor = dpt;
     }

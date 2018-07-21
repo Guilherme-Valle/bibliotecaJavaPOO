@@ -1,5 +1,6 @@
 package controller;
 
+import model.vo.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,11 +21,26 @@ public class ControllerCadastraLivro {
 	class listenerBtnCadastrar implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
-			JOptionPane.showMessageDialog(null, "aaaa");
-			String userInput = "";
+			
+			String txtTit = "";
+			String txtAut = "";
+			String txtEdit = "";
+			String txtDat = "";
+			String txtVol = "";
+			String txtEdic = "";
+			int qtdExemp;
+					
             try {
-                userInput = the_view.getTxtAut();
-                  
+            	
+                txtTit = the_view.getTxtTit().getText();
+                txtAut = the_view.getTxtAut().getText();
+                txtEdit = the_view.getTxtEdit().getText();
+                txtDat = the_view.getTxtDat().getText();
+                txtVol = the_view.getTxtVol().getText();
+                txtEdic = the_view.getTxtEdic().getText();
+                qtdExemp = Integer.parseInt(the_view.getTxtQtd().getText());
+                
+                  	
             } catch (NumberFormatException nfex) {
                 JOptionPane.showMessageDialog(null, "deu merda");
             }

@@ -28,8 +28,9 @@ public class TelaCadastroUsuario extends JFrame {
 	private JPanel panel = new JPanel();
 	
 	
-	private JButton btnCadastrar = new JButton("Cadastrar");
-	
+	private JButton btnCadastrarAluno = new JButton("Cadastrar");
+	private JButton btnCadastrarProfessor = new JButton("Cadastrar");
+	private JButton btnCadastrarExterno = new JButton("Cadastrar");
 	
 	private final JTextField txtMatAluno = new JTextField();
 	private final JTextField txtAnoAluno = new JTextField();
@@ -112,7 +113,7 @@ public class TelaCadastroUsuario extends JFrame {
 		txtNasc.setColumns(10);
 		
 		
-		btnCadastrar.setBounds(12, 330, 317, 25);
+		
 		
 		
 		JLabel labelIcon = new JLabel("");
@@ -145,6 +146,16 @@ public class TelaCadastroUsuario extends JFrame {
 		
 		panel_aluno.setVisible(false);
 		panel_aluno.setLayout(null);
+		
+		
+		btnCadastrarAluno.setBounds(0, 66, 117, 25);
+		panel_aluno.add(btnCadastrarAluno);
+		
+		btnCadastrarProfessor.setBounds(0, 66, 117, 25);
+		panel_prof.add(btnCadastrarProfessor);
+		
+		btnCadastrarExterno.setBounds(0, 66, 117, 25);
+		panel_ext.add(btnCadastrarExterno);
 		
 		txtCodigoProf.setBounds(80, 25, 114, 19);
 		txtCodigoProf.setColumns(10);
@@ -187,6 +198,30 @@ public class TelaCadastroUsuario extends JFrame {
 		
 	}
 	
+	public JButton getBtnCadastrarAluno() {
+		return btnCadastrarAluno;
+	}
+
+	public void setBtnCadastrarAluno(JButton btnCadastrarAluno) {
+		this.btnCadastrarAluno = btnCadastrarAluno;
+	}
+
+	public JButton getBtnCadastrarProfessor() {
+		return btnCadastrarProfessor;
+	}
+
+	public void setBtnCadastrarProfessor(JButton btnCadastrarProfessor) {
+		this.btnCadastrarProfessor = btnCadastrarProfessor;
+	}
+
+	public JButton getBtnCadastrarExterno() {
+		return btnCadastrarExterno;
+	}
+
+	public void setBtnCadastrarExterno(JButton btnCadastrarExterno) {
+		this.btnCadastrarExterno = btnCadastrarExterno;
+	}
+
 	public void addListenerBtnAluno (ActionListener e){
 		rdbtnAluno.addActionListener(e);
 		
@@ -199,6 +234,21 @@ public class TelaCadastroUsuario extends JFrame {
 	
 	public void addListenerBtnExterno (ActionListener e){
 		rdbtnExterno.addActionListener(e);
+		
+	}
+	
+	public void addListenerCadAluno (ActionListener e){
+		btnCadastrarAluno.addActionListener(e);
+		
+	}
+	
+	public void addListenerCadProf (ActionListener e){
+		btnCadastrarProfessor.addActionListener(e);
+		
+	}
+	
+	public void addListenerCadExt (ActionListener e){
+		btnCadastrarExterno.addActionListener(e);
 		
 	}
 
@@ -257,15 +307,6 @@ public class TelaCadastroUsuario extends JFrame {
 	public void setPanel(JPanel panel) {
 		this.panel = panel;
 	}
-
-	public JButton getBtnCadastrar() {
-		return btnCadastrar;
-	}
-
-	public void setBtnCadastrar(JButton btnCadastrar) {
-		this.btnCadastrar = btnCadastrar;
-	}
-
 	
 	
 	public JPanel getPanel_Aluno (){

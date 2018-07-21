@@ -117,8 +117,8 @@ public class TelaCadastroLivro extends JFrame {
 	}
 
 
-	public String getTxtAut() {
-		return txtAut.getText();
+	public JTextField getTxtAut() {
+		return txtAut;
 	}
 
 

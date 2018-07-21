@@ -16,6 +16,10 @@ public class ControllerMainMenu {
 		this.view = the_view;
 		view.addListenerCadastrarUsuario(new listenerCadastrarUsuario());
 		view.addListenerCadastrarLivro(new listenerCadastrarLivro());
+		
+		
+		
+		
 	}
 	
 	class listenerCadastrarUsuario implements ActionListener {

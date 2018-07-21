@@ -16,10 +16,10 @@ public class Externo extends Usuario {
     private String codigoIdentificafor;
     
     
-    public Externo(int id, String nome, String telefone, String dataNascimento, double debitos, String tipoDeUsuario, String codigoIdt) {
-        super(id, nome, telefone, dataNascimento, debitos);
+    public Externo(int id, String nome, String telefone, String dataNascimento, double debitos, String tipoDeUsuario, String codigoId, int FK) {
+        super(id, nome, telefone, dataNascimento, debitos, FK);
         this.tipoDeUsuario = tipoDeUsuario;
-        this.codigoIdentificafor = codigoIdt;
+        this.codigoIdentificafor = codigoId;
     }
 
     public String getTipoDeUsuario() {

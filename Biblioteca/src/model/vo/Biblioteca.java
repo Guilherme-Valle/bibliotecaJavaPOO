@@ -5,6 +5,7 @@
  */
 package model.vo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -15,19 +16,19 @@ import java.util.Random;
  *
  * @author guido
  */
-public class Biblioteca {
+public class Biblioteca implements Serializable {
     
+	private int id;
     private HashSet<Usuario> usuarios;
     private HashSet<Livro> livros;
     private ArrayList<Emprestimo> emprestimos;
     private String nome;
-    private Administrador adm;
     private Date diaSistema;
     
 
-    public Biblioteca(String nome, Administrador adm) {
+    public Biblioteca(String nome, int id) {
+    	this.id = id;
         this.nome = nome;
-        this.adm = adm;
         this.usuarios = new HashSet<Usuario>();
         this.livros = new HashSet<Livro>();
         this.emprestimos = new ArrayList<Emprestimo>();
@@ -71,16 +72,17 @@ public class Biblioteca {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public Administrador getAdm() {
-        return adm;
-    }
-
-    public void setAdm(Administrador adm) {
-        this.adm = adm;
-    }
     
-    public Usuario retornaUsuario (int id){
+    
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Usuario retornaUsuario (int id){
         for (Usuario i : this.usuarios){
             if (i.getId()==id){
                 return i;
@@ -141,7 +143,7 @@ public class Biblioteca {
     
   public void cadastrarProfessor (String nome, String telefone, String dataNascimento, String codigo, String dpt){
       Random gerador = new Random();
-      Usuario p = new Professor(gerador.nextInt(25000), nome, telefone, dataNascimento, 0, codigo, dpt);
+      Usuario p = new Professor(gerador.nextInt(25000), nome, telefone, dataNascimento, 0, codigo, dpt, this.getId());
       
       try {
         this.usuarios.add(p);
@@ -152,7 +154,7 @@ public class Biblioteca {
   
    public void cadastrarAluno (String nome, String telefone, String dataNascimento, String matriculaAluno, int anoAluno){
       Random gerador = new Random();
-      Usuario p = new Aluno(gerador.nextInt(25000), nome, telefone, dataNascimento, 0, matriculaAluno, anoAluno);
+      Usuario p = new Aluno(gerador.nextInt(25000), nome, telefone, dataNascimento, 0, matriculaAluno, anoAluno, this.getId());
       
       try {
         this.usuarios.add(p);
@@ -163,7 +165,7 @@ public class Biblioteca {
    
     public void cadastrarExterno (String nome, String telefone, String dataNascimento, String tipoUsuario, String cod){
       Random gerador = new Random();
-      Usuario p = new Externo(gerador.nextInt(25000), nome, telefone, dataNascimento, 0, tipoUsuario, cod);
+      Usuario p = new Externo(gerador.nextInt(25000), nome, telefone, dataNascimento, 0, tipoUsuario, cod, this.getId());
       
       try {
         this.usuarios.add(p);

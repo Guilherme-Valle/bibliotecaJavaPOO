@@ -19,11 +19,16 @@ public class ControllerCadastraUsuario {
 		view.addListenerBtnAluno(new listenerBtnAluno());
 		view.addListenerBtnProfessor(new listenerBtnProfessor());
 		view.addListenerBtnExterno(new listenerBtnExterno());
+		view.addListenerCadAluno(new listenerBtnCadAluno());
+		view.addListenerCadProf(new listenerBtnCadProf());
+		view.addListenerCadExt(new listenerBtnCadExt());
+		
 	}
 	
 	class listenerBtnAluno implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
+			
 			
 			JPanel paneprof = the_view.getPanel_Prof();
 			paneprof.setVisible(false);
@@ -67,6 +72,7 @@ public class ControllerCadastraUsuario {
 	class listenerBtnExterno implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
+			
 			JPanel panealuno = the_view.getPanel_Aluno();
 			panealuno.setVisible(false);
 			the_view.setPanel_Aluno(panealuno);
@@ -78,6 +84,49 @@ public class ControllerCadastraUsuario {
 			JPanel paneext = the_view.getPanel_Ext();
 			paneext.setVisible(true);
 			the_view.setPanel_Ext(paneext);
+			
+		}
+		
+	}
+	
+	class listenerBtnCadAluno implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			int id;
+			String nome = "";
+			String telefone = "";
+			String dataNasc = "";
+			String matricula = "";
+			int anoAluno;	
+			
+		}
+		
+	}
+	
+	class listenerBtnCadProf implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			int id;
+			String nome = "";
+			String telefone = "";
+			String dataNasc = "";
+			String deptProf = "";
+			String codProf = "";
+			
+		}
+		
+	}
+	
+	class listenerBtnCadExt implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			int id;
+			String nome = "";
+			String telefone = "";
+			String dataNasc = "";
+			String tipoUsuario = "";
+			String codId = "";
+			
 			
 		}
 		
