@@ -5,11 +5,14 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.HashSet;
 
 import javax.swing.JOptionPane;
 
 import model.vo.Biblioteca;
 import model.vo.Livro;
+import model.vo.Usuario;
 
 public class BibliotecaDAO {
 
@@ -192,7 +195,47 @@ public class BibliotecaDAO {
 		
 	}
 	
+	public HashSet<Livro> retornaLivrosEmprestaveis (){
+		
+		HashSet<Livro> livros = new HashSet();
+		try {
+			FileInputStream fileInput = new FileInputStream("//home//guilherme//workspace//Biblioteca//db.txt");
+			ObjectInputStream objectInput = new ObjectInputStream(fileInput);
+			Biblioteca b = (Biblioteca)objectInput.readObject();
+			objectInput.close();
+			livros = b.retornaLivrosEmprestaveis();
+		
+		
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+		
+		return livros;
+		
+	}
+	
+	public HashSet<Usuario> retornaUsuariosEmprestaveis (){
+		
+
+		HashSet<Usuario> usuarios = new HashSet();
+		try {
+			FileInputStream fileInput = new FileInputStream("//home//guilherme//workspace//Biblioteca//db.txt");
+			ObjectInputStream objectInput = new ObjectInputStream(fileInput);
+			Biblioteca b = (Biblioteca)objectInput.readObject();
+			objectInput.close();
+			usuarios = b.retornaUsuariosEmprestaveis();
+		
+		
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+		
+		return usuarios;
+		
+		}
+		
+	}
 	
 	
 	
-}
+

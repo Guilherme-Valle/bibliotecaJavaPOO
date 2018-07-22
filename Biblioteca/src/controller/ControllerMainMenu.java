@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 
 import model.dao.BibliotecaDAO;
 
+import view.TelaCadastroEmprestimos;
 import view.TelaCadastroLivro;
 import view.TelaCadastroUsuario;
 import view.TelaMenuPrincipal;
@@ -19,6 +20,8 @@ public class ControllerMainMenu {
 		view.addListenerCadastrarUsuario(new listenerCadastrarUsuario());
 		view.addListenerCadastrarLivro(new listenerCadastrarLivro());
 		view.addListenerListarLivros(new listenerListarLivros());
+		view.addListenerCadastrarEmprestimo(new listenerCadastrarEmprestimo());
+		
 		BibliotecaDAO b = new BibliotecaDAO();
 		if (b.criaBiblioteca())
 			JOptionPane.showMessageDialog(null, "a");
@@ -66,6 +69,17 @@ public class ControllerMainMenu {
 		
 		
 	}
+	
+	class listenerCadastrarEmprestimo implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			TelaCadastroEmprestimos tela = new TelaCadastroEmprestimos();
+			ControllerCadastraEmprestimo contEmp = new ControllerCadastraEmprestimo(tela);
+			tela.setExtendedState(tela.MAXIMIZED_BOTH);
+			tela.setLocationRelativeTo(null);
+			tela.setVisible(true);
+			
+		}}
 	
 	
 	

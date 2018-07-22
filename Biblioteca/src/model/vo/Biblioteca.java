@@ -112,6 +112,32 @@ public class Biblioteca implements Serializable {
         return null;
     }
      
+     public HashSet<Livro> retornaLivrosEmprestaveis() {
+    	 
+    	 HashSet<Livro> livros = new HashSet();
+    	 for (Livro i : this.livros){
+    		 if (i.getQtdVolumes() > 0 && i.getVolumesReservados() < i.getQtdVolumes()){
+    			 livros.add(i);
+    		 } 
+    	 }
+    	 return livros;
+     }
+     
+public HashSet<Usuario> retornaUsuariosEmprestaveis() {
+    	 
+    	 HashSet<Usuario> usuarios = new HashSet();
+    	 for (Usuario i : this.usuarios){
+    		if (i.debitos == 0){
+    			usuarios.add(i);
+    			
+    		}
+    		  
+    	 }
+    	 return usuarios;
+     }
+     
+     
+     
      public Integer pesquisaIdLivroPorNome (String nome){
         for (Livro i : this.livros){
             if (i.getTitulo().equals(nome)){

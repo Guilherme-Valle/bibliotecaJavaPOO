@@ -12,6 +12,10 @@ import java.io.Serializable;
  * @author guido
  */
 public class Livro implements Serializable {
+	
+	
+	private static final long serialVersionUID = 1L;
+	
     private int id;
     private String titulo;
     private String autor;
@@ -20,6 +24,7 @@ public class Livro implements Serializable {
     private String volume;
     private String edicao;
     private int qtdVolumes;
+    private int volumesReservados;
 
     public Livro(int id, String titulo, String autor, String editora, String dataLancamento, String volume, String edicao, int qtdVolumes) {
         this.id = id;
@@ -30,6 +35,7 @@ public class Livro implements Serializable {
         this.volume = volume;
         this.edicao = edicao;
         this.qtdVolumes = qtdVolumes;
+        this.volumesReservados = 0;
     }
 
     public int getId() {
@@ -63,8 +69,21 @@ public class Livro implements Serializable {
     public void setEditora(String editora) {
         this.editora = editora;
     }
+    
+    @Override
+	public String toString() {
+		return " "+this.titulo+" ";
+	}
 
-    public String getDataLancamento() {
+	public int getVolumesReservados() {
+		return volumesReservados;
+	}
+
+	public void setVolumesReservados(int volumesReservados) {
+		this.volumesReservados = volumesReservados;
+	}
+
+	public String getDataLancamento() {
         return dataLancamento;
     }
 

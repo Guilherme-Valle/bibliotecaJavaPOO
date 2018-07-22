@@ -32,7 +32,7 @@ public abstract class Usuario implements Serializable {
         this.nome = nome;
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
-        this.debitos = debitos;
+        this.debitos = 0;
         this.idBiblioteca = idBiblioteca;
     }
 
@@ -80,5 +80,12 @@ public abstract class Usuario implements Serializable {
         this.setDebitos(0);
         System.out.println("Débitos pagos");
     }
+
+	@Override
+	public String toString() {
+		return " "+this.getNome()+" ";
+	}
+    
+    
     
 }
