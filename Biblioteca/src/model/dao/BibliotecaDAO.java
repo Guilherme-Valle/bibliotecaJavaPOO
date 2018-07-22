@@ -204,7 +204,7 @@ public class BibliotecaDAO {
 			Biblioteca b = (Biblioteca)objectInput.readObject();
 			objectInput.close();
 			livros = b.retornaLivrosEmprestaveis();
-		
+			
 		
 		} catch (Exception e){
 			e.printStackTrace();
@@ -233,6 +233,37 @@ public class BibliotecaDAO {
 		return usuarios;
 		
 		}
+	
+	public boolean cadastrarEmprestimo(int livroId, int userId){
+		
+		try {
+			FileInputStream fileInput = new FileInputStream("//home//guilherme//workspace//Biblioteca//db.txt");
+			ObjectInputStream objectInput = new ObjectInputStream(fileInput);
+			Biblioteca b = (Biblioteca)objectInput.readObject();
+			objectInput.close();
+			b.cadastraEmprestimo(userId, livroId);
+			
+			FileOutputStream fileOutput = new FileOutputStream("//home//guilherme//workspace//Biblioteca//db.txt");
+			ObjectOutputStream objGravar = new ObjectOutputStream(fileOutput);
+			
+			objGravar.writeObject(b);
+			objGravar.flush();
+			objGravar.close();
+			JOptionPane.showMessageDialog(null, "Empréstimo gravado");
+			
+			return true;
+			
+			
+		} catch (Exception e){
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "deu ruim");
+			return false;
+			
+		}
+		
+		
+	}
+	
 		
 	}
 	

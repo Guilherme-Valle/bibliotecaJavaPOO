@@ -26,7 +26,11 @@ public class ControllerCadastraEmprestimo {
 	class listenerBtnCadastrar implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
+			Usuario user = (Usuario)the_view.getComboBoxUsers().getSelectedItem();
+			Livro livro = (Livro)the_view.getComboBoxBooks().getSelectedItem();
+			
+			BibliotecaDAO b = new BibliotecaDAO();
+			b.cadastrarEmprestimo(livro.getId(), user.getId());
 			
 			}
 		}

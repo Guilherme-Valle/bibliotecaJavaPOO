@@ -24,9 +24,9 @@ public class ControllerMainMenu {
 		
 		BibliotecaDAO b = new BibliotecaDAO();
 		if (b.criaBiblioteca())
-			JOptionPane.showMessageDialog(null, "a");
+			JOptionPane.showMessageDialog(null, "Biblioteca já inicializada");
 		else
-			JOptionPane.showMessageDialog(null, "b");
+			JOptionPane.showMessageDialog(null, "Nova biblioteca criada");
 
 		
 		

@@ -156,12 +156,26 @@ public HashSet<Usuario> retornaUsuariosEmprestaveis() {
         return null;
     }
     
+    public void livroEmprestado (int idLivro){
+    	for (Livro i : this.livros){
+    		if (i.getId() == idLivro){
+    			int qtdAtual = i.getQtdVolumes();
+    			qtdAtual--;
+    			i.setQtdVolumes(qtdAtual);
+    			
+    		}
+    		
+    	}
+    	
+    }
+    
     public void cadastraEmprestimo (int idUsuario, int idLivro){
         Usuario user = retornaUsuario(idUsuario);
         Livro liv = retornaLivro(idLivro);
         if (liv != null && user != null && liv.getQtdVolumes() > 0){           
             Random gerador = new Random();
             Emprestimo emprestimo = new Emprestimo(gerador.nextInt(2500), liv, user);
+            this.livroEmprestado(idLivro);
             this.emprestimos.add(emprestimo);
             System.out.println("Empréstimo realizado com sucesso.");
         } else {    
