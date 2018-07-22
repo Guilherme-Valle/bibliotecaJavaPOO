@@ -5,11 +5,13 @@
  */
 package model.vo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author guido                
  */
-public abstract class Usuario {
+public abstract class Usuario implements Serializable {
     protected int id;
     protected String nome;
     protected String telefone;

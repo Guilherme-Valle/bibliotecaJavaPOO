@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import model.dao.BibliotecaDAO;
+
 import view.TelaCadastroLivro;
 import view.TelaCadastroUsuario;
 import view.TelaMenuPrincipal;
@@ -16,8 +18,13 @@ public class ControllerMainMenu {
 		this.view = the_view;
 		view.addListenerCadastrarUsuario(new listenerCadastrarUsuario());
 		view.addListenerCadastrarLivro(new listenerCadastrarLivro());
-		
-		
+		view.addListenerListarLivros(new listenerListarLivros());
+		BibliotecaDAO b = new BibliotecaDAO();
+		if (b.criaBiblioteca())
+			JOptionPane.showMessageDialog(null, "a");
+		else
+			JOptionPane.showMessageDialog(null, "b");
+
 		
 		
 	}
@@ -44,6 +51,17 @@ public class ControllerMainMenu {
 			tela.setExtendedState(tela.MAXIMIZED_BOTH);
 		    tela.setLocationRelativeTo(null);
 			tela.setVisible(true);
+		}
+		
+		
+	}
+	
+	class listenerListarLivros implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			BibliotecaDAO b = new BibliotecaDAO();
+			b.listarLivros();
+			
 		}
 		
 		

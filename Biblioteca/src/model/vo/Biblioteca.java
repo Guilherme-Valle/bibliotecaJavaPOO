@@ -12,12 +12,15 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author guido
  */
 public class Biblioteca implements Serializable {
-    
+	
+	private static final long serialVersionUID = 6529685098267757690L;
 	private int id;
     private HashSet<Usuario> usuarios;
     private HashSet<Livro> livros;
@@ -143,7 +146,7 @@ public class Biblioteca implements Serializable {
     
   public void cadastrarProfessor (String nome, String telefone, String dataNascimento, String codigo, String dpt){
       Random gerador = new Random();
-      Usuario p = new Professor(gerador.nextInt(25000), nome, telefone, dataNascimento, 0, codigo, dpt, this.getId());
+      Usuario p = new Professor(gerador.nextInt(25000), nome, telefone, dataNascimento, 0, this.getId(), dpt, codigo);
       
       try {
         this.usuarios.add(p);
@@ -154,7 +157,7 @@ public class Biblioteca implements Serializable {
   
    public void cadastrarAluno (String nome, String telefone, String dataNascimento, String matriculaAluno, int anoAluno){
       Random gerador = new Random();
-      Usuario p = new Aluno(gerador.nextInt(25000), nome, telefone, dataNascimento, 0, matriculaAluno, anoAluno, this.getId());
+      Usuario p = new Aluno(gerador.nextInt(25000), nome, telefone, dataNascimento, 0, this.getId(), matriculaAluno, anoAluno);
       
       try {
         this.usuarios.add(p);
@@ -165,7 +168,7 @@ public class Biblioteca implements Serializable {
    
     public void cadastrarExterno (String nome, String telefone, String dataNascimento, String tipoUsuario, String cod){
       Random gerador = new Random();
-      Usuario p = new Externo(gerador.nextInt(25000), nome, telefone, dataNascimento, 0, tipoUsuario, cod, this.getId());
+      Usuario p = new Externo(gerador.nextInt(25000), nome, telefone, dataNascimento, 0, this.getId(), cod, tipoUsuario);
       
       try {
         this.usuarios.add(p);
@@ -198,6 +201,14 @@ public class Biblioteca implements Serializable {
             }
         }
     
+    }
+    
+    public void listarLivros (){
+    	for (Livro e : this.livros){
+    		JOptionPane.showMessageDialog(null, e.getTitulo());
+    		
+    	}
+    	
     }
     
     public void proximoDiaSistema (){

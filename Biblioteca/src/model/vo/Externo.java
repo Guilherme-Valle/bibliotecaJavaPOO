@@ -6,21 +6,26 @@
 
 package model.vo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author guido
  */
-public class Externo extends Usuario {
+public class Externo extends Usuario implements Serializable {
     
-    private String tipoDeUsuario;
+   
+
+	private String tipoDeUsuario;
     private String codigoIdentificafor;
     
     
-    public Externo(int id, String nome, String telefone, String dataNascimento, double debitos, String tipoDeUsuario, String codigoId, int FK) {
-        super(id, nome, telefone, dataNascimento, debitos, FK);
-        this.tipoDeUsuario = tipoDeUsuario;
-        this.codigoIdentificafor = codigoId;
-    }
+     public Externo(int id, String nome, String telefone, String dataNascimento,
+			double debitos, int idBiblioteca, String tipo, String cod) {
+		super(id, nome, telefone, dataNascimento, debitos, idBiblioteca);
+		this.tipoDeUsuario = tipo;
+		this.codigoIdentificafor = cod;
+	}
 
     public String getTipoDeUsuario() {
         return tipoDeUsuario;

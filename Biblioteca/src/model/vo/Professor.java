@@ -5,15 +5,25 @@
  */
 package model.vo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author guido
  */
-public class Professor extends Usuario {
+public class Professor extends Usuario implements Serializable {
     
-    private String codigoProfessor;
+   
+
+	private String codigoProfessor;
     private String departamentoProfessor;
     
+     public Professor(int id, String nome, String telefone,
+			String dataNascimento, double debitos, int idBiblioteca, String cod, String dpto) {
+		super(id, nome, telefone, dataNascimento, debitos, idBiblioteca);
+		this.codigoProfessor = cod;
+		this.departamentoProfessor = dpto;
+	}
 
     public String getCodigoProfessor() {
         return codigoProfessor;
@@ -31,10 +41,5 @@ public class Professor extends Usuario {
         this.departamentoProfessor = departamentoProfessor;
     }
     
-    public Professor(int id, String nome, String telefone, String dataNascimento, double debitos, String codigo, String dpt, int FK) {
-        super(id, nome, telefone, dataNascimento, debitos, FK);
-        this.codigoProfessor = codigo;
-        this.departamentoProfessor = dpt;
-    }
-    
+   
 }

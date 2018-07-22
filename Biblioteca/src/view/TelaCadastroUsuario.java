@@ -28,6 +28,9 @@ public class TelaCadastroUsuario extends JFrame {
 	private JPanel panel = new JPanel();
 	
 	
+
+
+
 	private JButton btnCadastrarAluno = new JButton("Cadastrar");
 	private JButton btnCadastrarProfessor = new JButton("Cadastrar");
 	private JButton btnCadastrarExterno = new JButton("Cadastrar");
@@ -350,4 +353,27 @@ public class TelaCadastroUsuario extends JFrame {
 	public JTextField getTxtAnoAluno() {
 		return txtAnoAluno;
 	}
+	
+	public JTextField getTxtMatAluno() {
+		return txtMatAluno;
+	}
+
+	public JTextField getTxtCodigoProf() {
+		return txtCodigoProf;
+	}
+
+	public JTextField getTxtDeptProf() {
+		return txtDeptProf;
+	}
+
+	public JTextField getTxtTipoExt() {
+		return txtTipoExt;
+	}
+
+	public JTextField getTxtCodExt() {
+		return txtCodExt;
+	}
+	
+	
+
 }

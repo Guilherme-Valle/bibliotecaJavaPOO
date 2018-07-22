@@ -5,11 +5,13 @@
  */
 package model.vo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author guido
  */
-public class Livro {
+public class Livro implements Serializable {
     private int id;
     private String titulo;
     private String autor;

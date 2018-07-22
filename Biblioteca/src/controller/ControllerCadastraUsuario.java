@@ -9,6 +9,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import model.dao.BibliotecaDAO;
+
 import view.TelaCadastroUsuario;
 
 public class ControllerCadastraUsuario {
@@ -28,7 +30,6 @@ public class ControllerCadastraUsuario {
 	class listenerBtnAluno implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
-			
 			
 			JPanel paneprof = the_view.getPanel_Prof();
 			paneprof.setVisible(false);
@@ -92,13 +93,30 @@ public class ControllerCadastraUsuario {
 	class listenerBtnCadAluno implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
-			int id;
+			
 			String nome = "";
 			String telefone = "";
 			String dataNasc = "";
 			String matricula = "";
 			int anoAluno;	
 			
+			try {
+				nome = the_view.getTxtNome().getText();
+				telefone = the_view.getTxtTel().getText();
+				dataNasc = the_view.getTxtNasc().getText();
+				matricula = the_view.getTxtMatAluno().getText();
+				anoAluno = Integer.parseInt(the_view.getTxtAnoAluno().getText());
+				
+				BibliotecaDAO b = new BibliotecaDAO();
+				b.cadastrarAluno(nome, telefone, dataNasc, matricula, anoAluno);
+				
+				
+				
+			} catch (Exception z){
+				
+				z.printStackTrace();
+				
+			}
 		}
 		
 	}
@@ -106,13 +124,28 @@ public class ControllerCadastraUsuario {
 	class listenerBtnCadProf implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
-			int id;
+			
 			String nome = "";
 			String telefone = "";
 			String dataNasc = "";
 			String deptProf = "";
 			String codProf = "";
 			
+			try {
+				nome = the_view.getTxtNome().getText();
+				telefone = the_view.getTxtTel().getText();
+				dataNasc = the_view.getTxtNasc().getText();
+				deptProf = the_view.getTxtDeptProf().getText();
+				codProf = the_view.getTxtCodigoProf().getText();
+				
+				BibliotecaDAO b = new BibliotecaDAO();
+				b.cadastrarProfessor(nome, telefone, dataNasc, codProf, deptProf);
+				
+			} catch (Exception z){
+				
+				z.printStackTrace();
+				
+			}
 		}
 		
 	}
@@ -120,13 +153,28 @@ public class ControllerCadastraUsuario {
 	class listenerBtnCadExt implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
-			int id;
+			
 			String nome = "";
 			String telefone = "";
 			String dataNasc = "";
 			String tipoUsuario = "";
 			String codId = "";
 			
+			try {
+				nome = the_view.getTxtNome().getText();
+				telefone = the_view.getTxtTel().getText();
+				dataNasc = the_view.getTxtNasc().getText();
+				tipoUsuario = the_view.getTxtTipoExt().getText();
+				codId = the_view.getTxtCodExt().getText();
+				
+				BibliotecaDAO b = new BibliotecaDAO();
+				b.cadastrarExterno(nome, telefone, dataNasc, tipoUsuario, codId);
+				
+			} catch (Exception z){
+				
+				z.printStackTrace();
+				
+			}
 			
 		}
 		

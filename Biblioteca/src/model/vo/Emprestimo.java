@@ -5,6 +5,7 @@
  */
 package model.vo;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -12,7 +13,7 @@ import java.util.Date;
  *
  * @author guido
  */
-public class Emprestimo {
+public class Emprestimo implements Serializable {
     private int id;
     private Livro livroEmprestimo;
     private Usuario usuarioEmprestimo; 

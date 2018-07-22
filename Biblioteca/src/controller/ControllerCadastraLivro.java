@@ -1,5 +1,6 @@
 package controller;
 
+import model.dao.BibliotecaDAO;
 import model.vo.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -39,9 +40,14 @@ public class ControllerCadastraLivro {
                 txtVol = the_view.getTxtVol().getText();
                 txtEdic = the_view.getTxtEdic().getText();
                 qtdExemp = Integer.parseInt(the_view.getTxtQtd().getText());
+                BibliotecaDAO biblioteca = new BibliotecaDAO();
+                
+                biblioteca.cadastraLivro(txtTit, txtAut, txtEdit, txtDat, txtVol, txtEdic, qtdExemp);
+                
+                
                 
                   	
-            } catch (NumberFormatException nfex) {
+            } catch (Exception nfex) {
                 JOptionPane.showMessageDialog(null, "deu merda");
             }
         

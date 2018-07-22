@@ -5,20 +5,25 @@
  */
 package model.vo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author guido
  */
-public class Aluno extends Usuario {
+public class Aluno extends Usuario implements Serializable {
     
-    private String matriculaAluno;
+
+	private String matriculaAluno;
     private int anoAluno;
     
-    public Aluno(int id, String nome, String telefone, String dataNascimento, double debitos, String matriculaAluno, int anoAluno, int FK) {
-        super(id, nome, telefone, dataNascimento, debitos, FK);
-        this.matriculaAluno = matriculaAluno;
-        this.anoAluno = anoAluno;
-    }
+    
+    public Aluno(int id, String nome, String telefone, String dataNascimento,
+			double debitos, int idBiblioteca, String mat, int ano) {
+		super(id, nome, telefone, dataNascimento, debitos, idBiblioteca);
+		this.matriculaAluno = mat;
+		this.anoAluno = ano;
+	}
 
     public String getMatriculaAluno() {
         return matriculaAluno;
