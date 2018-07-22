@@ -283,6 +283,33 @@ public class BibliotecaDAO {
 		
 	}
 	
+	public void checaEmprestimos (){
+		try {
+			FileInputStream fileInput = new FileInputStream("//home//guilherme//workspace//Biblioteca//db.txt");
+			ObjectInputStream objectInput = new ObjectInputStream(fileInput);
+			Biblioteca b = (Biblioteca)objectInput.readObject();
+			objectInput.close();
+			b.verificarEmprestimo();
+			
+			FileOutputStream fileOutput = new FileOutputStream("//home//guilherme//workspace//Biblioteca//db.txt");
+			ObjectOutputStream objGravar = new ObjectOutputStream(fileOutput);
+			
+			objGravar.writeObject(b);
+			objGravar.flush();
+			objGravar.close();
+			
+		
+			
+			
+		} catch (Exception e){
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "deu ruim");
+			
+			
+		}
+		
+	}
+	
 		
 	}
 	

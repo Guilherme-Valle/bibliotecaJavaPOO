@@ -24,11 +24,12 @@ public class ControllerMainMenu {
 		view.addListenerListarEmprestimos(new listenerListarEmprestimos());
 		
 		BibliotecaDAO b = new BibliotecaDAO();
-		if (b.criaBiblioteca())
-			JOptionPane.showMessageDialog(null, "Biblioteca já inicializada");
-		else
-			JOptionPane.showMessageDialog(null, "Nova biblioteca criada");
-
+		if (b.criaBiblioteca()){
+			b.checaEmprestimos();
+			JOptionPane.showMessageDialog(null, "Biblioteca já inicializada. Empréstimos checados.");
+		} else
+			JOptionPane.showMessageDialog(null, "Nova biblioteca criada.");
+		
 		
 		
 	}
