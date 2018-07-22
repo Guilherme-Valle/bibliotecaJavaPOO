@@ -105,6 +105,25 @@ public class BibliotecaDAO {
 		
 	}
 	
+	public void listarEmprestimos(){
+		Biblioteca b = null;
+		try {
+		
+		FileInputStream fileInput = new FileInputStream("//home//guilherme//workspace//Biblioteca//db.txt");
+		ObjectInputStream objectInput = new ObjectInputStream(fileInput);
+		b = (Biblioteca)objectInput.readObject();
+		objectInput.close();
+		
+		} catch (Exception e){
+			JOptionPane.showMessageDialog(null, "deu ruim");
+			e.printStackTrace();
+			
+		}
+		
+		b.listarEmprestimos();
+		
+	}
+	
 	public boolean cadastrarAluno (String nome, String telefone, String dataNasci, String matAluno, int anoAluno){
 		try {
 			

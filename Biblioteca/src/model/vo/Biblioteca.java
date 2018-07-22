@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JOptionPane;
 
@@ -26,7 +27,7 @@ public class Biblioteca implements Serializable {
     private HashSet<Livro> livros;
     private ArrayList<Emprestimo> emprestimos;
     private String nome;
-    private Date diaSistema;
+
     
 
     public Biblioteca(String nome, int id) {
@@ -35,13 +36,11 @@ public class Biblioteca implements Serializable {
         this.usuarios = new HashSet<Usuario>();
         this.livros = new HashSet<Livro>();
         this.emprestimos = new ArrayList<Emprestimo>();
-        Calendar c = Calendar.getInstance();
-        this.diaSistema =  c.getTime();
+        
+        
     }
 
-    public Date getDiaSistema() {
-        return diaSistema;
-    }
+   
     
 
     public HashSet<Usuario> getUsuarios() {
@@ -229,8 +228,9 @@ public HashSet<Usuario> retornaUsuariosEmprestaveis() {
     }
     
     public void verificarEmprestimo (){
+    	Date d = new Date(System.currentTimeMillis());
         for (Emprestimo e : this.emprestimos){
-            if (e.getDiaDevolucao().before(this.diaSistema)){
+            if (e.getDiaDevolucao().before(d)){
                 if (e.getUsuarioEmprestimo() instanceof Aluno){
                     e.getUsuarioEmprestimo().setDebitos(e.getUsuarioEmprestimo().getDebitos()+5);
                 } else if (e.getUsuarioEmprestimo() instanceof Professor){
@@ -251,17 +251,24 @@ public HashSet<Usuario> retornaUsuariosEmprestaveis() {
     	
     }
     
-    public void proximoDiaSistema (){
-        this.diaSistema.setDate(this.diaSistema.getDate()+1);
-        System.out.println("Mais um dia se passou...");
+    public void listarEmprestimos (){
+    	for (Emprestimo e : this.emprestimos){
+    		
+    		Date hoje = new Date(System.currentTimeMillis());
+    		long diasRestantes = e.getDiaDevolucao().getTime() - hoje.getTime();
+    		JOptionPane.showMessageDialog(null, "Usuário: "+e.getUsuarioEmprestimo().getNome()+"\nLivro: "+e.getLivroEmprestimo().getTitulo()+
+    				"\n ID do empréstimo: "+e.getId()+"\n Dias restantes: " +TimeUnit.MILLISECONDS.toDays(diasRestantes));
+    		
+    	}
+    	
     }
+    
     
     @Override
     public String toString() {
         return "Biblioteca{" + "usuarios=" + usuarios + ", livros=" + livros + ", emprestimos=" + emprestimos + '}';
     }
-    
-    
+    		    
     
     
 }

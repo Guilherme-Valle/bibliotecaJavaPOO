@@ -21,6 +21,7 @@ public class ControllerMainMenu {
 		view.addListenerCadastrarLivro(new listenerCadastrarLivro());
 		view.addListenerListarLivros(new listenerListarLivros());
 		view.addListenerCadastrarEmprestimo(new listenerCadastrarEmprestimo());
+		view.addListenerListarEmprestimos(new listenerListarEmprestimos());
 		
 		BibliotecaDAO b = new BibliotecaDAO();
 		if (b.criaBiblioteca())
@@ -69,6 +70,16 @@ public class ControllerMainMenu {
 		
 		
 	}
+	
+	class listenerListarEmprestimos implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			BibliotecaDAO b = new BibliotecaDAO();
+			b.listarEmprestimos();
+			
+		}}
+	
+	
 	
 	class listenerCadastrarEmprestimo implements ActionListener {
 

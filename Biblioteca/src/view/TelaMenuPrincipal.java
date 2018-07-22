@@ -15,7 +15,7 @@ public class TelaMenuPrincipal extends JFrame {
 	
 	private JButton btnCadastrarUsuario = new JButton("Cadastrar usuário");
 	private JButton btnCadastrarLivro = new JButton("Cadastrar livro");
-	private JButton btnReserva = new JButton("Realizar reserva");
+	private JButton btnRenovarEmprestimo = new JButton("Renovar empréstimo");
 	private JButton btnCadastrarEmprestimo = new JButton("Cadastrar empréstimo");
 	private JButton btnListaEmprestimos = new JButton("Exibir empréstimos");
 	private JButton btnListaLivros = new JButton("Exibir livros");
@@ -40,9 +40,9 @@ public class TelaMenuPrincipal extends JFrame {
 		panel.add(btnCadastrarLivro);
 		
 		
-		btnReserva.setBounds(255, 257, 215, 25);
+		btnRenovarEmprestimo.setBounds(255, 257, 215, 25);
 		
-		panel.add(btnReserva);
+		panel.add(btnRenovarEmprestimo);
 		
 		
 		btnCadastrarEmprestimo.setBounds(12, 346, 215, 25);
@@ -91,8 +91,8 @@ public class TelaMenuPrincipal extends JFrame {
 		
 	}
 	
-	public void addListenerReserva (ActionListener e){
-		btnReserva.addActionListener(e);
+	public void addListenerRenovarEmprestimo (ActionListener e){
+		btnRenovarEmprestimo.addActionListener(e);
 		
 	}
 	

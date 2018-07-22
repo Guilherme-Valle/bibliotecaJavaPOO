@@ -8,6 +8,7 @@ package model.vo;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -33,17 +34,27 @@ public class Emprestimo implements Serializable {
         this.id = id;
         this.livroEmprestimo = livroEmprestimo;
         this.usuarioEmprestimo = usuarioEmprestimo;
-        Calendar c = Calendar.getInstance();
-        this.dataEmprestimo = c.getTime();
-        this.diaDevolucao = this.dataEmprestimo;
+        
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime( new java.util.Date() );
+        
+        this.dataEmprestimo = new Date(System.currentTimeMillis());
+        this.diaDevolucao = calendar.getTime();
+        
+        
         if (usuarioEmprestimo instanceof Externo){
-            this.diaDevolucao.setDate(this.diaDevolucao.getDate()+diasEmprestimoExterno);     
+        	calendar.add( Calendar.DAY_OF_MONTH , diasEmprestimoExterno );
+        	this.diaDevolucao = calendar.getTime();
         } else if (usuarioEmprestimo instanceof Aluno){
-            this.diaDevolucao.setDate(this.diaDevolucao.getDate()+diasEmprestimoAluno);     
+            calendar.add(Calendar.DAY_OF_MONTH, diasEmprestimoAluno);
+            this.diaDevolucao = calendar.getTime();
         } else if (usuarioEmprestimo instanceof Professor){
-            this.diaDevolucao.setDate(this.diaDevolucao.getDate()+diasEmprestimoProfessor);     
+            calendar.add(Calendar.DAY_OF_MONTH, diasEmprestimoProfessor);
+            this.diaDevolucao = calendar.getTime();
         }
         this.jaFoiRenovado = false;
+        System.out.println(dataEmprestimo);
+        System.out.println(diaDevolucao);
     }
 
     public int getId() {
@@ -99,7 +110,10 @@ public class Emprestimo implements Serializable {
         if (this.jaFoiRenovado){
             System.out.println("Este empréstimo já foi renovado.");
         } else {
-            this.diaDevolucao.setDate(this.diaDevolucao.getDate()+diasRenovados);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(new java.util.Date());
+            calendar.add(Calendar.DAY_OF_MONTH, diasRenovados);
+            this.diaDevolucao = calendar.getTime();
             this.setJaFoiRenovado(true);
         }
     }

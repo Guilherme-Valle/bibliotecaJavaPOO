@@ -5,6 +5,8 @@
  */
 package model.vo;
 
+import java.awt.Toolkit;
+
 import controller.ControllerMainMenu;
 import view.TelaMenuPrincipal;
 
@@ -20,9 +22,11 @@ public class Main {
         TelaMenuPrincipal theView = new TelaMenuPrincipal();
         ControllerMainMenu theController = new ControllerMainMenu(theView);
         
-        theView.setExtendedState(theView.MAXIMIZED_BOTH);
-        theView.setLocationRelativeTo(null);
+        theView.setExtendedState(theView.MAXIMIZED_BOTH);	
         theView.setVisible(true);
+  
+
+
         
        
     }
